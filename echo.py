@@ -8,7 +8,7 @@ updater = Updater(TOKEN)
 
 #Handler
 def echo(update: Update, context: CallbackContext):
-    print('TEXT')
+    print(update.message.text)
     return 
 
 updater.dispatcher.add_handler(MessageHandler(Filters.text,echo))
