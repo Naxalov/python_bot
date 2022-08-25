@@ -8,6 +8,10 @@ updater = Updater(TOKEN)
 
 #Handler
 def echo(update: Update, context: CallbackContext):
-    pass
+    print('TEXT')
+    return 
 
 updater.dispatcher.add_handler(MessageHandler(Filters.text,echo))
+
+updater.start_polling()
+updater.idle()
