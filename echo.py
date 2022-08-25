@@ -8,7 +8,10 @@ updater = Updater(TOKEN)
 
 #Handler
 def echo(update: Update, context: CallbackContext):
-    print(update.message.text)
+    txt=update.message.text
+    user_id = update.message.from_user.id
+    bot = context.bot
+    bot.sendMessage(user_id,txt)
     return 
 
 updater.dispatcher.add_handler(MessageHandler(Filters.text,echo))
