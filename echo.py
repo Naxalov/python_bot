@@ -1,4 +1,4 @@
-from telegram.ext import Updater,MessageHandler,Filters,CallbackContext
+from telegram.ext import Updater,MessageHandler,Filters,CallbackContext,CommandHandler
 from telegram import Update
 
 import os
@@ -14,6 +14,15 @@ def echo(update: Update, context: CallbackContext):
     bot.sendMessage(user_id,txt)
     return 
 
+def start(update: Update, context: CallbackContext):
+    txt='Welcome to our echo bot'
+    user_id = update.message.from_user.id
+    bot = context.bot
+    bot.sendMessage(user_id,txt)
+    return 
+
+
+updater.dispatcher.add_handler(CommandHandler('start',start))
 updater.dispatcher.add_handler(MessageHandler(Filters.text,echo))
 
 updater.start_polling()
