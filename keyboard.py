@@ -18,7 +18,7 @@ def start(update: Update, context: CallbackContext):
     txt='Welcome to our echo bot'
     user_id = update.message.from_user.id
     bot = context.bot
-    
+    update.message.reply_text(txt)
     return 
 
 
