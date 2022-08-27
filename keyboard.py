@@ -18,7 +18,8 @@ def start(update: Update, context: CallbackContext):
     txt='Welcome to our echo bot'
     user_id = update.message.from_user.id
     bot = context.bot
-    reply_markup = ReplyKeyboardMarkup([['11','12']])
+    key1 = KeyboardButton(text='KeyButton',request_contact=True)
+    reply_markup = ReplyKeyboardMarkup([[key1,key1]],input_field_placeholder='Placeholder')
     update.message.reply_text(txt,reply_markup=reply_markup)
     return 
 
